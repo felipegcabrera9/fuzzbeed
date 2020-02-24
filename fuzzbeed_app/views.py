@@ -15,5 +15,3 @@ def quiz(request):
 
 def rankings(request):
     return render(request, 'rankings.html')
-
-    # Create your views here.
