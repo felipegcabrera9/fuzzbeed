@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class='containter'>
+        <div class='row'>
+            <div class="mx-auto">
+                <h1>Registration</h1>
+                <br>
+                {% for message in messages %}
+                <div class="alert alert-warning" role="alert">
+                    <input type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </input>
+                    {{message}}
+                    <br>
+                </div>
+                {% endfor %}
+                <form action='/register' method='POST'>
+                    {% csrf_token %}
+                    First Name
+                    <br>
+                    <input type='text' name='first_name'>
+                    <br>
+                    Last Name
+                    <br>
+                    <input type='text' name='last_name'>
+                    <br>
+                    Email
+                    <br>
+                    <input type='email' name='email'>
+                    <br>
+                    Birthdate
+                    <br>
+                    <input type='date' name='birthdate'>
+                    <br>
+                    Password
+                    <br>
+                    <input type='password' name='password'>
+                    <br>
+                    Confirm PW
+                    <br>
+                    <input type='password' name='confirm_password'>
+                    <br>
+                    <br>
+                    <input type="submit" class="btn btn-primary" value='Register'>Register</input>
+            </div>
+            </form>
+            <br>
+            <div class="mx-auto">
+                <h1>Login</h1>
+                <br>
+                <form action='/login' method='POST'>
+                    {% csrf_token %}
+                    Email
+                    <br>
+                    <input type='email' name='email'>
+                    <br>
+                    Password
+                    <br>
+                    <input type='password' name='password'>
+                    <br>
+                    <br>
+                    <input type="submit" class="btn btn-primary" value='Login'></input>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

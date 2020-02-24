@@ -33,4 +33,3 @@ class Quiz(models.Model):
     objects = QuizManager()
     #needs to store an image
     #array of four possible outcomes for the quiz
-    
