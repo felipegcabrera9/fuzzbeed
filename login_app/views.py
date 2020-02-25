@@ -27,16 +27,7 @@ def register(request):
         user.save()
         request.session['nick_name'] = user.first_name
         request.session['id'] = user.id
-    return redirect('/success')
-
-
-def success(request):
-    if not 'id' in request.session:
-        messages.error(request, 'Please login')
-        return redirect('/')
-
-    else:
-        return render(request, 'success.html')
+    return redirect('/quiz/profile')
 
 
 def login(request):
@@ -53,7 +44,7 @@ def login(request):
 
             request.session['id'] = logged_user.id
 
-            return redirect('/success')
+            return redirect('/quiz/profile')
     return redirect('/')
 
 

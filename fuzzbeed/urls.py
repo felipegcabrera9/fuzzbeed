@@ -17,5 +17,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('login_app.urls')),
-    path('quiz', include('fuzzbeed_app.urls'))
+    path('quiz/', include('fuzzbeed_app.urls'))
 ]

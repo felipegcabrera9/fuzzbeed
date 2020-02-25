@@ -1,5 +1,7 @@
 from django.db import models
+import json
 from login_app.models import User
+from jsonfield import JSONField
 # Create your models here.
 
 
@@ -30,63 +32,12 @@ class Quiz(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = QuizManager()
-    # four possible outcomes
     o1 = models.CharField(max_length=50)
     o2 = models.CharField(max_length=50)
     o3 = models.CharField(max_length=50)
     o4 = models.CharField(max_length=50)
-    # ten questions
-    q1 = models.CharField(max_length=50)
-    q2 = models.CharField(max_length=50)
-    q3 = models.CharField(max_length=50)
-    q4 = models.CharField(max_length=50)
-    q5 = models.CharField(max_length=50)
-    q6 = models.CharField(max_length=50)
-    q7 = models.CharField(max_length=50)
-    q8 = models.CharField(max_length=50)
-    q9 = models.CharField(max_length=50)
-    q10 = models.CharField(max_length=50)
-    # four possible answers for each question
-    q1a1 = models.CharField(max_length=50)
-    q1a2 = models.CharField(max_length=50)
-    q1a3 = models.CharField(max_length=50)
-    q1a4 = models.CharField(max_length=50)
-    q2a1 = models.CharField(max_length=50)
-    q2a2 = models.CharField(max_length=50)
-    q2a3 = models.CharField(max_length=50)
-    q2a4 = models.CharField(max_length=50)
-    q3a1 = models.CharField(max_length=50)
-    q3a2 = models.CharField(max_length=50)
-    q3a3 = models.CharField(max_length=50)
-    q3a4 = models.CharField(max_length=50)
-    q4a1 = models.CharField(max_length=50)
-    q4a2 = models.CharField(max_length=50)
-    q4a3 = models.CharField(max_length=50)
-    q4a4 = models.CharField(max_length=50)
-    q5a1 = models.CharField(max_length=50)
-    q5a2 = models.CharField(max_length=50)
-    q5a3 = models.CharField(max_length=50)
-    q5a4 = models.CharField(max_length=50)
-    q6a1 = models.CharField(max_length=50)
-    q6a2 = models.CharField(max_length=50)
-    q6a3 = models.CharField(max_length=50)
-    q6a4 = models.CharField(max_length=50)
-    q7a1 = models.CharField(max_length=50)
-    q7a2 = models.CharField(max_length=50)
-    q7a3 = models.CharField(max_length=50)
-    q7a4 = models.CharField(max_length=50)
-    q8a1 = models.CharField(max_length=50)
-    q8a2 = models.CharField(max_length=50)
-    q8a3 = models.CharField(max_length=50)
-    q8a4 = models.CharField(max_length=50)
-    q9a1 = models.CharField(max_length=50)
-    q9a2 = models.CharField(max_length=50)
-    q9a3 = models.CharField(max_length=50)
-    q9a4 = models.CharField(max_length=50)
-    q10a1 = models.CharField(max_length=50)
-    q10a2 = models.CharField(max_length=50)
-    q10a3 = models.CharField(max_length=50)
-    q10a4 = models.CharField(max_length=50)
+    # ten questions and four possible answers for each question
+    qna = JSONField()
 
 
 class Result(models.Model):
