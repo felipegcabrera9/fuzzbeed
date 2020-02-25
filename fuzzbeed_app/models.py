@@ -1,4 +1,5 @@
 from django.db import models
+import json
 from login_app.models import User
 from jsonfield import JSONField
 # Create your models here.
