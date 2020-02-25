@@ -4,6 +4,7 @@ from login_app.models import User
 from jsonfield import JSONField
 # Create your models here.
 
+
 class QuizManager(models.Manager):
     def quiz_validator(request, postdata):
         errors = {}
@@ -23,26 +24,25 @@ class QuizManager(models.Manager):
         return errors
 
 
-
 class Quiz(models.Model):
-    name = models.CharField(max_length = 255)
-    desc = models.CharField(max_length = 255)
+    name = models.CharField(max_length=255)
+    desc = models.CharField(max_length=255)
     users = models.ManyToManyField(User, through='Result')
     image = models.ImageField(upload_to='quiz_banner', blank=True)
-    created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     objects = QuizManager()
-    #four possible outcomes
-    o1 = models.CharField(max_length = 50)
-    o2 = models.CharField(max_length = 50)
-    o3 = models.CharField(max_length = 50)
-    o4 = models.CharField(max_length = 50)
-    #ten questions and four possible answers for each question
+    o1 = models.CharField(max_length=50)
+    o2 = models.CharField(max_length=50)
+    o3 = models.CharField(max_length=50)
+    o4 = models.CharField(max_length=50)
+    # ten questions and four possible answers for each question
     qna = JSONField()
 
+
 class Result(models.Model):
-    quiz = models.ForeignKey(Quiz, on_delete = models.CASCADE)
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
-    outcome = models.CharField(max_length = 25)
-    created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True)
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    outcome = models.CharField(max_length=25)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
