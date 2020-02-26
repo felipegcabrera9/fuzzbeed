@@ -9,18 +9,18 @@ class QuizManager(models.Manager):
     def quiz_validator(request, postdata):
         errors = {}
         if not len(postdata['name'] > 5):
-            errors['name'] = 'Your quizes name must have more than five characters.'
+            errors['name'] = 'Quiz name must have more than five characters'
         if not len(postdata['desc'] > 10):
-            errors['desc'] = 'Your quiz must have a description of more than ten characters'
+            errors['desc'] = 'Quiz must have a description of more than ten characters'
         for i in range(4):
             if not len(postdata['outcomes'][i]) > 1:
-                errors['outcomes'] = 'All your quiz outcomes must have at least two characters'
+                errors['outcomes'] = 'Quiz outcomes must have at least two characters'
         for i in range(10):
             if not len(postdata['questions'][i]) > 10:
-                errors['questions'] = 'all your quesions must be at least ten characters long'
+                errors['questions'] = 'Questions must be at least ten characters long'
         for i in range(40):
             if not len(postdata['answers'][i]) > 10:
-                errors['answers'] = 'Your quizes answers must all have at least ten characters'
+                errors['answers'] = 'Quiz answers must have at least ten characters'
         return errors
 
 
