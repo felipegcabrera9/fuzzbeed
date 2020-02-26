@@ -1,0 +1,29 @@
+.header {
+    background-color: #f9fd50;
+}
+
+.middle {
+    background-color: #85ef47;
+}
+
+.footer {
+    background-color: #00bd56;
+}
+
+.button {
+    background-color: #00bd56;
+}
+
+.card {
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 1px 20px 0 rgba(0,0,0,.1);
+}
+
+.jumbotron {
+    margin-bottom:0px;
+}
+
+.jumbotron-two {
+    margin-bottom:0px;
+}

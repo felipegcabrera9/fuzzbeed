@@ -11,17 +11,19 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>fuzzbeed</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
-    <div class='contain-md'>
+    <div class='contain-md middle'>
         <h1>Welcome {{request.sessions.nick_name}}!</h1>
         <div class='row'>
             <div class='col sm-1'>
                 <div class='media'>
                     <img src="..." class="mr-3" alt="...">
                 </div>
-                <a href='/quiz/new' role="button" class="btn btn-primary btn-lg btn-block">Create Quiz</a>
+                <a href='/quiz/new' role="button" class="btn button btn-lg btn-block">Create Quiz</a>
 
                 {% for outcome in outcomes reversed%}
 
@@ -77,10 +79,6 @@
 
             </div>
         </div>
-
-
-
-
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
