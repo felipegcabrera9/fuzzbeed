@@ -17,10 +17,11 @@
     <div class='container-sm'>
         <h1>Create a Quiz</h1>
 
-        <form>
+        <form action="new/create" method="POST" >
+            {% csrf_token %}
             <div class="form-group">
                 <label for="quiz_img">Quiz Image</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" class="form-control-file" name='quiz_img' id="exampleFormControlFile1">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Quiz Name</label>
@@ -33,19 +34,19 @@
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Outcome 1 (What kind of (blank) are you? i.e. unicorn,
                     Hufflepuff, pizza rat)</label>
-                <textarea class="form-control" name="q1a1" rows="1"></textarea>
+                <textarea class="form-control" name="o1" rows="1"></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Outcome 2</label>
-                <textarea class="form-control" name="q1a1" rows="1"></textarea>
+                <textarea class="form-control" name="o2" rows="1"></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Outcome 3</label>
-                <textarea class="form-control" name="q1a1" rows="1"></textarea>
+                <textarea class="form-control" name="o3" rows="1"></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Outcome 4</label>
-                <textarea class="form-control" name="q1a1" rows="1"></textarea>
+                <textarea class="form-control" name="o4" rows="1"></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Question 1</label>
