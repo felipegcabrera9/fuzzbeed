@@ -16,8 +16,14 @@ def profile(request):
         return render(request, 'profile.html')
 
 
-def quiz(request):
-    return render(request, 'quiz.html')
+def quizpage(request, quiz_id):
+    test_quiz = Quiz.objects.get(id=quiz_id)
+    context = {'test_quiz': test_quiz}
+    print(type(test_quiz.qna))
+    for key in test_quiz.qna:
+        print(key)
+        print(test_quiz.qna[key])
+    return render(request, 'quiz.html', context)
 
 
 def rankings(request):
