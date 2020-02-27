@@ -62,12 +62,13 @@ def takeQuiz(request, quiz_id):
     else:
         outcome = quiz.o4
 
-    Result.objects.create(
+    new_result = Result.objects.create(
         quiz=quiz,
         user=User.objects.get(id=request.session['user_id']),
         outcome=outcome
     )
-    return redirect('profile')
+    context = {'new_result': new_result}
+    return render(request, 'outcome.html', context)
 
 
 def createQuiz(request):

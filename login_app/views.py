@@ -34,7 +34,7 @@ def login(request):
     users = User.objects.filter(email=request.POST['email'])
     if len(users) == 0:
         messages.error(request, 'Email is incorrect')
-        return redirect('/')
+        return redirect('/home')
     if len(users) >= 1:
         logged_user = users[0]
 
@@ -45,7 +45,7 @@ def login(request):
             request.session['id'] = logged_user.id
 
             return redirect('/quiz/profile')
-    return redirect('/')
+    return redirect('/home')
 
 
 def logout(request):

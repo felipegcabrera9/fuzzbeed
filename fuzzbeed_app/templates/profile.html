@@ -17,66 +17,56 @@
 
 <body>
     <div class='contain-md middle'>
-        <h1>Welcome {{request.sessions.nick_name}}!</h1>
+        <h1>Welcome {{request.session.nick_name}}!</h1>
         <div class='row'>
             <div class='col sm-1'>
-                <div class='media'>
-                    <img src="..." class="mr-3" alt="...">
-                </div>
                 <a href='/quiz/new' role="button" class="btn button btn-lg btn-block">Create Quiz</a>
-                <a href='/quiz/quizpage/2' role="button" class="btn button btn-lg btn-block">Take Test Quiz</a>
-
-                {{for questions}}
-
+                <a href='/logout' role="button" class="btn button btn-lg btn-block">Logout</a>
             </div>
             <div class='col lg-2'>
                 <div class="media">
-                    <img src="..." class="mr-3" alt="...">
+                    <img src="{% static 'img/IMG_6013.jpg' %}" />
                     <div class="media-body">
-                        <h5 class="mt-0">Media heading</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                        vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <h5 class="mt-0"><a href=''>What piece of clothing defines your soul?</a></h5>
+                        Holy shirt!
                     </div>
                 </div>
                 <div class="media">
-                    <img src="..." class="mr-3" alt="...">
+                    <img src="{% static 'img/two_cats_sm.jpeg' %}" />
                     <div class="media-body">
-                        <h5 class="mt-0">Media heading</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                        vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <h5 class="mt-0"><a href=''>What kind of cat are you?</a></h5>
+                        Are you a Greg or are you an Oliver?
                     </div>
                 </div>
                 <div class="media">
-                    <img src="..." class="mr-3" alt="...">
+                    <img src="{% static 'img/pink_poodle.jpeg' %}" />
                     <div class="media-body">
-                        <h5 class="mt-0">Media heading</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                        vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <h5 class="mt-0"><a href=''>All Dogs Take This Quiz</a></h5>
+                        Are you a happy-go-lucky golden? How about a mastiff?
                     </div>
                 </div>
                 <div class="media">
-                    <img src="..." class="mr-3" alt="...">
+                    <img src="{% static 'img/IMG_3059.jpg' %}" />
                     <div class="media-body">
-                        <h5 class="mt-0">Media heading</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                        vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <h5 class="mt-0"><a href=''>Is it time to grow facial hair?</a></h5>
+                        The answer is yes.
                     </div>
                 </div>
                 <div class="media">
-                    <img src="..." class="mr-3" alt="...">
+                    <img src="{% static 'img/original_nintendo.jpeg' %}" />
                     <div class="media-body">
-                        <h5 class="mt-0">Media heading</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                        vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <h5 class="mt-0"><a href='/quiz/quizpage/1'>What 8-Bit Nintendo Game Is the Best Metaphor For
+                                Our
+                                Cold, Brutal Reality?</a>
+                        </h5>
+                        All the answers are Duck Hunt.
                     </div>
                 </div>
-
             </div>
+        </div>
+    </div>
+    <div class="jumbotron jumbotron-fluid middle">
+        <div class="container">
         </div>
     </div>
     <!-- Optional JavaScript -->
