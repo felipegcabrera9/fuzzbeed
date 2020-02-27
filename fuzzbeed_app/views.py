@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from login_app.models import User
+from login_app.models import *
 from .models import *
 
 
@@ -35,15 +35,21 @@ def takeQuiz(request, quiz_id):
     # each index in the outcomes array is used to represent one of the four quiz outcomes
     # this loop increments indexes in the array based on the answers that came through the form
     outcomes = [0, 0, 0, 0]
-    for key in request.post['answers']:
-        if key == 'o1':
+    print(request.POST.getlist('answers'))
+    for item in request.POST.getlist('answers'):
+        print(item)
+        if item == 'Choose...':
+            pass
+        elif item == '1':
             outcomes[0] += 1
-        elif key == 'o2':
+        elif item == '2':
             outcomes[1] += 1
-        elif key == 'o3':
+        elif item == '3':
             outcomes[2] += 1
-        else:
+        elif item == '4':
             outcomes[3] += 1
+
+    print('outcomes:', outcomes)
     # finds which outcome had the most points by indentify the index with the highest value in the outcomes array
     maxIndex = 0
     for i in range(len(outcomes)):
@@ -51,6 +57,7 @@ def takeQuiz(request, quiz_id):
         if outcomes[i] > max:
             max = outcomes[i]
             maxIndex = i
+    print(maxIndex)
     # uses the data we found above to assign a relevant quiz outcome value to be sent to the results table
     quiz = Quiz.objects.get(id=quiz_id)
     if(maxIndex == 0):
@@ -62,13 +69,12 @@ def takeQuiz(request, quiz_id):
     else:
         outcome = quiz.o4
 
-    new_result = Result.objects.create(
+    Result.objects.create(
         quiz=quiz,
-        user=User.objects.get(id=request.session['user_id']),
+        user=User.objects.get(id=request.session['id']),
         outcome=outcome
     )
-    context = {'new_result': new_result}
-    return render(request, 'outcome.html', context)
+    return redirect('profile')
 
 
 def createQuiz(request):
