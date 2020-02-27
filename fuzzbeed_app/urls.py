@@ -6,5 +6,6 @@ urlpatterns = [
     path('new/create', views.createQuiz),
     path('quizpage/<int:quiz_id>', views.quizpage),
     path('quizpage/<int:quiz_id>/takequiz', views.takeQuiz),
+    path('quizpage/<int:quiz_id>/takequiz/result', views.result),
     path('rankings', views.rankings),
 ]

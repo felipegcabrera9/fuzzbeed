@@ -29,6 +29,13 @@ def quizpage(request, quiz_id):
 def rankings(request):
     return render(request, 'rankings.html')
 
+def result(request, quiz_id):
+    result = Result.objects.filter(quiz = quiz_id).filter(user = request.session['id']).last()
+    print(result)
+    context = {
+        "result": result
+    }
+    return render(request, 'result.html', context)
 
 def takeQuiz(request, quiz_id):
     # this block tallys the scores for each outcome
@@ -74,7 +81,7 @@ def takeQuiz(request, quiz_id):
         user=User.objects.get(id=request.session['id']),
         outcome=outcome
     )
-    return redirect('profile')
+    return redirect(f'/quiz/quizpage/{quiz_id}/takequiz/result')
 
 
 def createQuiz(request):
