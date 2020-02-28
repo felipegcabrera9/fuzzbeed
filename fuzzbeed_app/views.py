@@ -13,7 +13,13 @@ def profile(request):
         return redirect('/')
 
     else:
-        return render(request, 'profile.html')
+        results = Result.objects.filter(
+            user=request.session['id'])
+    print(results)
+    context = {
+        "results": results
+    }
+    return render(request, 'profile.html', context)
 
 
 def quizpage(request, quiz_id):
@@ -29,13 +35,16 @@ def quizpage(request, quiz_id):
 def rankings(request):
     return render(request, 'rankings.html')
 
+
 def result(request, quiz_id):
-    result = Result.objects.filter(quiz = quiz_id).filter(user = request.session['id']).last()
+    result = Result.objects.filter(quiz=quiz_id).filter(
+        user=request.session['id']).last()
     print(result)
     context = {
         "result": result
     }
     return render(request, 'result.html', context)
+
 
 def takeQuiz(request, quiz_id):
     # this block tallys the scores for each outcome

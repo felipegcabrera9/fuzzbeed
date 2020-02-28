@@ -16,12 +16,22 @@
 </head>
 
 <body>
-    <div class='contain-md middle'>
-        <h1>Welcome {{request.session.nick_name}}!</h1>
+    <div class='contain-md middle edge'>
+        <br>
+        <h1 class='text-center'>Welcome {{request.session.nick_name}}!</h1>
+        <br>
         <div class='row'>
             <div class='col sm-1'>
                 <a href='/quiz/new' role="button" class="btn button btn-lg btn-block">Create Quiz</a>
                 <a href='/logout' role="button" class="btn button btn-lg btn-block">Logout</a>
+                <br>
+                <h2>Past Quiz Results:</h2>
+                {% for result in results %}
+                <h3>{{result.created_at}}</h3>
+                <h3>{{result.quiz.name}}</h3>
+                <h3>{{result.outcome}}</h3>
+                <br>
+                {% endfor %}
             </div>
             <div class='col lg-2'>
                 <div class="media">

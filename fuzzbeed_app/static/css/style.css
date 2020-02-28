@@ -1,0 +1,49 @@
+.header {
+    background-color: #f9fd50;
+    margin-bottom:0px;
+}
+
+.middle {
+    background-color: #85ef47;
+    margin-bottom:0px;
+}
+
+.edge {
+    padding: 15px;
+}
+
+.footer {
+    background-color: #00bd56;
+    margin-bottom:0px;
+}
+
+.button {
+    background-color: #00bd56;
+}
+
+.card {
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 1px 20px 0 rgba(0,0,0,.1);
+}
+
+.jumbotron {
+    margin-bottom:0px;
+}
+
+.jumbotron-two {
+    margin-bottom:0px;
+}
+
+.media {
+    padding: 15px;
+    margin-bottom:0px;
+}
+
+.media-body {
+    padding: 10px;
+}
+
+.body {
+    padding-bottom: 70px;
+}

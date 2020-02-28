@@ -8,16 +8,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>fuzzbeed</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
     <div class='container-sm middle'>
-        <h1>Quiz</h1>
+        <h1 class='text-center'>{{test_quiz.name}}</h1>
+        <br>
         <form action='{{test_quiz.id}}/takequiz' method='POST'>
             {% csrf_token %}
             <div class="form-group">
                 <div class='question'> {% for key,value in test_quiz.qna.items %}
-                    <h1>{{key}}</h1>
+                    <h3>{{key}}</h3>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="inputGroupSelect01">Answers</label>
